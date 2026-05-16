@@ -1,0 +1,15 @@
+show_startup_tips false
+
+keybinds {
+    unbind "Alt left"
+    unbind "Alt right"
+    unbind "Alt f"
+    
+    shared_except "locked" "scroll" {
+        bind "Alt Shift left" { MoveFocusOrTab "left"; }
+        bind "Alt Shift down" { MoveFocus "down"; }
+        bind "Alt Shift up" { MoveFocus "up"; }
+        bind "Alt Shift right" { MoveFocusOrTab "right"; }
+        bind "Alt Shift f" { ToggleFloatingPanes; }
+    }
+}
