@@ -1,0 +1,53 @@
+layout {
+	pane_template name="window" split_direction="horizontal" {
+		pane size=1 borderless=true {
+			plugin location="zellij:tab-bar"
+		}
+		children
+		pane size=2 borderless=true {
+			plugin location="zellij:status-bar"
+		}
+	}
+	pane_template name="ide" {
+		window split_direction="vertical" {
+			pane name="explorer" size="15%" {
+				plugin location="zellij:strider" {
+					show_hidden_files true
+				}
+			}
+			pane split_direction="horizontal" {
+				pane name="editor" focus=true command="$EDITOR" {
+					// Assumes vi-like clone including vim, hx.
+					args "."
+				}
+				pane size="15%"
+			}
+		}
+	}
+	new_tab_template {
+		ide
+	}
+	tab name="Workspace" {
+		ide
+	}
+	tab name="Copilot" {
+		window {
+			pane borderless=true command="copilot" {
+				args "--resume"
+			}
+		}
+	}
+}
+keybinds {
+	shared_except "locked" {
+		bind "Ctrl 1" { GoToTab 1; }
+		bind "Ctrl 2" { GoToTab 2; }
+		bind "Ctrl 3" { GoToTab 3; }
+		bind "Ctrl 4" { GoToTab 4; }
+		bind "Ctrl 5" { GoToTab 5; }
+		bind "Ctrl 6" { GoToTab 6; }
+		bind "Ctrl 7" { GoToTab 7; }
+		bind "Ctrl 8" { GoToTab 8; }
+		bind "Ctrl 9" { GoToTab 9; }
+	}
+}
