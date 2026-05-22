@@ -2,6 +2,16 @@ osc8_hyperlinks true
 show_startup_tips false
 
 keybinds {
+    tmux {
+        unbind "Ctrl b"
+        bind "Ctrl Shift b" { Write 2; SwitchToMode "Normal"; }
+    }
+
+    shared_except "tmux" "locked" {
+        unbind "Ctrl b"
+        bind "Ctrl Shift b" { SwitchToMode "Tmux"; }
+    }
+
     shared_except "locked" {
         unbind "Alt f"
         bind "Alt Shift f" { ToggleFloatingPanes; }
