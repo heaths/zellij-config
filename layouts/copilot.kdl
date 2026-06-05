@@ -8,33 +8,15 @@ layout {
 			plugin location="zellij:status-bar"
 		}
 	}
-	pane_template name="ide" {
-		window split_direction="vertical" {
-			pane name="explorer" size="15%" {
-				plugin location="zellij:strider" {
-					show_hidden_files true
-				}
-			}
-			pane split_direction="horizontal" {
-				pane name="editor" focus=true command="$EDITOR" {
-					// Assumes vi-like clone including vim, hx.
-					args "."
-				}
-				pane size="15%"
-			}
+	window split_direction="vertical" {
+		pane size="70%" focus=true
+		pane borderless=true command="copilot" {
+			args "--resume"
 		}
 	}
 	new_tab_template {
-		ide
-	}
-	tab name="Workspace" {
-		ide
-	}
-	tab name="Copilot" {
 		window {
-			pane borderless=true command="copilot" {
-				args "--resume"
-			}
+			pane focus=true
 		}
 	}
 }
