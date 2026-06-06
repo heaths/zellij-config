@@ -9,7 +9,10 @@ layout {
 		}
 	}
 	window split_direction="vertical" {
-		pane size="70%" focus=true
+		pane size="70%" split_direction="horizontal" {
+			pane focus=true edit="."
+			pane size="20%"
+		}
 		pane borderless=true command="copilot" {
 			args "--resume"
 		}
