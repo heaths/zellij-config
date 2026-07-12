@@ -1,11 +1,19 @@
 layout {
-	pane_template name="window" split_direction="horizontal" {
+	tab_template name="window" split_direction="horizontal" {
 		pane size=1 borderless=true {
 			plugin location="zellij:tab-bar"
 		}
 		children
 		pane size=2 borderless=true {
 			plugin location="zellij:status-bar"
+		}
+	}
+	swap_tiled_layout {
+		window max_panes=4 {
+				pane size="70%" focus=true borderless=true command="copilot" {
+					args "--resume"
+				}
+				pane
 		}
 	}
 	window split_direction="vertical" {
@@ -17,9 +25,13 @@ layout {
 			args "--resume"
 		}
 	}
-	new_tab_template {
-		window {
-			pane focus=true
+	new_tab_template split_direction="horizontal" {
+		pane size=1 borderless=true {
+			plugin location="zellij:tab-bar"
+		}
+		pane
+		pane size=2 borderless=true {
+			plugin location="zellij:status-bar"
 		}
 	}
 }
