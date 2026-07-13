@@ -8,18 +8,18 @@ layout {
 			plugin location="zellij:status-bar"
 		}
 	}
-	swap_tiled_layout {
+	swap_tiled_layout name="Copilot" {
 		window max_panes=4 {
-				pane size="70%" focus=true borderless=true command="copilot" {
+				pane size="80%" focus=true borderless=true command="copilot" {
 					args "--resume"
 				}
 				pane
 		}
 	}
-	window split_direction="vertical" {
+	window name="IDE" split_direction="vertical" {
 		pane size="70%" split_direction="horizontal" {
-			pane focus=true edit="."
-			pane size="20%"
+			pane size="80%" focus=true edit="."
+			pane
 		}
 		pane borderless=true command="copilot" {
 			args "--resume"
